@@ -1,30 +1,25 @@
 const express = require('express');
+
 const router = express.Router();
 const Data = require('./models/dbQueries');
 
-router.get('/:id?', function(req, res, next) {
+router.get('/:id?', (req, res) => {
+  console.log('req', req.query);
   if (req.query.internet) {
-    Data.getFinalGradeByInternet(req.query.internet, function(
-      err,
-      apiResponse
-    ) {
+    Data.getFinalGradeByInternet(req.query.internet, (err, apiResponse) => {
       if (err) {
         console.log('there was an error...', err);
         res.json(err);
       } else {
-        const hasInternet = req.query.internet === 'yes' ? 'with' : 'without';
-        let grades = [];
-        apiResponse.map(data => {
-          grades.push(data.g3);
-        });
+        const grades = [];
+        let i = 0;
+        apiResponse.map(data => grades.push(data.g3));
         let sum = 0;
-        for (var i = 0; i < grades.length; i++) {
+        for (i = 0; i < grades.length; i += 1) {
           sum += grades[i];
         }
         const average = Number(sum / grades.length).toFixed(2);
-        res.send(
-          `<p>The total average final grade of students ${hasInternet} internet is: ${average}</p>`
-        );
+        res.json(average);
       }
     });
   } else {

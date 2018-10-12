@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
+// import axios from 'axios';
 import './app.css';
-import ReactImage from './react.png';
 
 export default class App extends Component {
-  state = { username: null };
+  state = { average: null };
 
   componentDidMount() {
-    fetch('/api/getUsername')
+    fetch('/api/DataTasks?internet=no')
       .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
+      .then(average => this.setState({ average }));
+    // .then(grade => this.setState({ grades: grade.username }));
   }
 
   render() {
-    const { username } = this.state;
+    const { average } = this.state;
     return (
       <div>
-        {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
-        <img src={ReactImage} alt="react" />
+        <h1>Hello Student!</h1>
+        <div>{`The Average grade is: ${average}`}</div>
       </div>
     );
   }

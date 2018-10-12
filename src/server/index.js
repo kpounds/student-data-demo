@@ -13,4 +13,4 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/DataTasks', databaseTasks);
 
 // starting express server
-app.listen(8080, () => console.log('Listening on port 8080!'));
+app.listen(8080, () => console.log('Node backend listening on port 8080!'));
