@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import './app.css';
 
 export default class App extends Component {
   state = { average: null };
 
   componentDidMount() {
-    fetch('/api/DataTasks?internet=no')
-      .then(res => res.json())
-      .then(average => this.setState({ average }));
-    // .then(grade => this.setState({ grades: grade.username }));
+    axios.get('/api/DataTasks?internet=no').then(res => {
+      const average = res.data;
+      return this.setState({ average });
+    });
   }
 
   render() {

@@ -4,7 +4,6 @@ const router = express.Router();
 const Data = require('./models/dbQueries');
 
 router.get('/:id?', (req, res) => {
-  console.log('req', req.query);
   if (req.query.internet) {
     Data.getFinalGradeByInternet(req.query.internet, (err, apiResponse) => {
       if (err) {
