@@ -61,8 +61,8 @@ export default class InternetAccess extends Component {
             }
           }}
         />
-        <div>{`Average without internet: ${averageWithout}`}</div>
         <div>{`Average with internet: ${averageWith}`}</div>
+        <div>{`Average without internet: ${averageWithout}`}</div>
       </Fragment>
     );
   }
