@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 import './app.css';
-import { redBright } from 'ansi-colors';
 
 export default class App extends Component {
   state = { averageWith: null, averageWithout: null };
