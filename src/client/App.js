@@ -3,21 +3,34 @@ import axios from 'axios';
 import './app.css';
 
 export default class App extends Component {
-  state = { average: null };
+  state = { averageWith: null, averageWithout: null };
 
   componentDidMount() {
-    axios.get('/api/DataTasks?internet=no').then(res => {
-      const average = res.data;
-      return this.setState({ average });
-    });
+    axios({
+      method: 'POST',
+      url: '/api/DataTasks',
+      data: {
+        internet: true
+      }
+    })
+      .then(res => {
+        this.setState({
+          averageWith: res.data.withInternet,
+          averageWithout: res.data.withoutInternet
+        });
+      })
+      .catch(err => {
+        console.log('api error: ', err);
+      });
   }
 
   render() {
-    const { average } = this.state;
+    const { averageWith, averageWithout } = this.state;
     return (
       <div>
         <h1>Hello Student!</h1>
-        <div>{`The Average grade is: ${average}`}</div>
+        <div>{`Average without internet: ${averageWithout}`}</div>
+        <div>{`Average with internet: ${averageWith}`}</div>
       </div>
     );
   }
