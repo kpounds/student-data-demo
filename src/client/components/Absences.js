@@ -120,7 +120,7 @@ export default class Absences extends Component {
           width={100}
           height={20}
           options={{
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             scales: {
               yAxes: [
                 {

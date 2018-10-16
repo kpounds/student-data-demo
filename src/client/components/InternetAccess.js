@@ -49,7 +49,7 @@ export default class InternetAccess extends Component {
           width={100}
           height={20}
           options={{
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             scales: {
               yAxes: [
                 {

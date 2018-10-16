@@ -20,7 +20,10 @@ class App extends Component {
     return (
       <div>
         <h1>Hello Student!</h1>
-        <p>Select to view average grades by: </p>
+        <p>
+          Select one of the following to view information about average grade
+          statistics and how they are affected by different circumstances:
+        </p>
         <ButtonGroup className="btnGroup">
           <Button
             bsStyle="primary"

@@ -7,6 +7,10 @@ body {
   margin: auto;
 }
 
+p {
+  padding: 15px 10px;
+}
+
 .btnGroup {
   margin: 20px 0 50px 0;
 }
