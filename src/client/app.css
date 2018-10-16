@@ -6,3 +6,7 @@ body {
   text-align: center;
   margin: auto;
 }
+
+.btnGroup {
+  margin: 20px 0 50px 0;
+}
