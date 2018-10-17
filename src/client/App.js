@@ -2,24 +2,73 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import InternetAccess from './components/InternetAccess';
 import Absences from './components/Absences';
+import Failures from './components/Failures';
+import StudyTime from './components/StudyTime';
 import './app.css';
 
 class App extends Component {
-  state = { showInternet: false, showAbsences: false };
+  state = {
+    showInternet: false,
+    showAbsences: false,
+    showFailures: false,
+    showStudyTime: false
+  };
+
+  reset = () => {
+    this.setState({
+      showInternet: false,
+      showAbsences: false,
+      showFailures: false,
+      showStudyTime: false
+    });
+  };
 
   showInternet = () => {
-    this.setState({ showInternet: true, showAbsences: false });
+    this.setState({
+      showInternet: true,
+      showAbsences: false,
+      showFailures: false,
+      showStudyTime: false
+    });
   };
 
   showAbsences = () => {
-    this.setState({ showInternet: false, showAbsences: true });
+    this.setState({
+      showInternet: false,
+      showAbsences: true,
+      showFailures: false,
+      showStudyTime: false
+    });
+  };
+
+  showFailures = () => {
+    this.setState({
+      showInternet: false,
+      showAbsences: false,
+      showFailures: true,
+      showStudyTime: false
+    });
+  };
+
+  showStudyTime = () => {
+    this.setState({
+      showInternet: false,
+      showAbsences: false,
+      showFailures: false,
+      showStudyTime: true
+    });
   };
 
   render() {
-    const { showInternet, showAbsences } = this.state;
+    const {
+      showInternet,
+      showAbsences,
+      showFailures,
+      showStudyTime
+    } = this.state;
     return (
       <div>
-        <h1>Hello Student!</h1>
+        <h1>Welcome!</h1>
         <p>
           Select one of the following to view information about average grade
           statistics and how they are affected by different circumstances:
@@ -46,16 +95,35 @@ class App extends Component {
             </Button>
           </div>
           <div className="btnGroup">
-            <Button bsStyle="primary" type="button" block>
+            <Button
+              bsStyle="primary"
+              type="button"
+              active={showFailures ? 'active' : null}
+              block
+              onClick={this.showFailures}
+            >
               Past Failures
             </Button>
-            <Button bsStyle="primary" type="button" block>
+            <Button
+              bsStyle="primary"
+              type="button"
+              active={showStudyTime ? 'active' : null}
+              block
+              onClick={this.showStudyTime}
+            >
               Study Time
             </Button>
           </div>
         </div>
+        <div className="btnGroup">
+          <Button onClick={this.reset} type="button" className="resetBtn">
+            Reset
+          </Button>
+        </div>
         {showInternet && <InternetAccess />}
         {showAbsences && <Absences />}
+        {showFailures && <Failures />}
+        {showStudyTime && <StudyTime />}
       </div>
     );
   }

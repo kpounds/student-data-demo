@@ -12,7 +12,7 @@ p {
 }
 
 .btnContainer {
-  margin: 20px auto 50px auto;
+  margin: 20px auto 0px auto;
   width: 90%;
 }
 
@@ -20,4 +20,9 @@ p {
   margin: 10px;
   display: inline-block;
   width: 150px;
+}
+
+.resetBtn {
+  margin: 0 auto 50px auto;
+  width: 90%;
 }

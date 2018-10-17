@@ -9,7 +9,12 @@ const Data = {
     ),
   getFinalGradeByFailures: callback =>
     database.query(
-      'SELECT g3 from students WHERE failures=0;SELECT g3 from students WHERE failures=1;SELECT g3 from students WHERE failures=2;SELECT g3 from students WHERE failures=3;SELECT g3 from students WHERE failures=4;',
+      'SELECT g3 from students WHERE failures=0;SELECT g3 from students WHERE failures=1;SELECT g3 from students WHERE failures=2;SELECT g3 from students WHERE failures=3;',
+      callback
+    ),
+  getFinalGradeByStudyTime: callback =>
+    database.query(
+      'SELECT g3 from students WHERE studytime=1;SELECT g3 from students WHERE studytime=2;SELECT g3 from students WHERE studytime=3;SELECT g3 from students WHERE studytime=4;',
       callback
     ),
   getFinalGradeByAbsences: callback =>

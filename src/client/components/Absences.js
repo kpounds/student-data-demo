@@ -85,13 +85,13 @@ export default class Absences extends Component {
           label:
             'Average Grade Based on Absences (multiplied by 10 for better visual)',
           data: [
-            parseFloat(noAbsencesAvg * 10),
-            parseFloat(fiveAbsencesAvg * 10),
-            parseFloat(tenAbsencesAvg * 10),
-            parseFloat(twentyAbsencesAvg * 10),
-            parseFloat(thirtyAbsencesAvg * 10),
-            parseFloat(fiftyAbsencesAvg * 10),
-            parseFloat(moreAbsencesAvg * 10)
+            parseFloat((noAbsencesAvg * 10).toFixed(2)),
+            parseFloat((fiveAbsencesAvg * 10).toFixed(2)),
+            parseFloat((tenAbsencesAvg * 10).toFixed(2)),
+            parseFloat((twentyAbsencesAvg * 10).toFixed(2)),
+            parseFloat((thirtyAbsencesAvg * 10).toFixed(2)),
+            parseFloat((fiftyAbsencesAvg * 10).toFixed(2)),
+            parseFloat((moreAbsencesAvg * 10).toFixed(2))
           ],
           backgroundColor: 'rgba(0, 128, 1, 0.5)',
           borderColor: 'rgba(0, 128, 1, 1)',
@@ -121,7 +121,7 @@ export default class Absences extends Component {
           width={100}
           height={20}
           options={{
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
             scales: {
               yAxes: [
                 {

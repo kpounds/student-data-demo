@@ -12,7 +12,7 @@ function getAverage(apiData, index) {
 }
 
 router.post('/:id?', (req, res) => {
-  // switch here?
+  // Could also do a switch statement here if more readable?
   if (req.body.internet) {
     Data.getFinalGradeByInternet((err, apiResponse) => {
       if (err) {
@@ -68,6 +68,66 @@ router.post('/:id?', (req, res) => {
           greaterThanFiftyAbsences: {
             average: greaterThanFifty.toFixed(2),
             numberOfStudents: apiResponse[6].length
+          }
+        });
+      }
+    });
+  } else if (req.body.failures) {
+    Data.getFinalGradeByFailures((err, apiResponse) => {
+      if (err) {
+        console.log('there was an error...', err);
+        res.json(err);
+      } else {
+        const noFailuresAvg = getAverage(apiResponse, 0);
+        const oneFailureAvg = getAverage(apiResponse, 1);
+        const twoFailuresAvg = getAverage(apiResponse, 2);
+        const threeFailuresAvg = getAverage(apiResponse, 3);
+        res.json({
+          noFailures: {
+            average: noFailuresAvg.toFixed(2),
+            numberOfStudents: apiResponse[0].length
+          },
+          oneFailure: {
+            average: oneFailureAvg.toFixed(2),
+            numberOfStudents: apiResponse[1].length
+          },
+          twoFailures: {
+            average: twoFailuresAvg.toFixed(2),
+            numberOfStudents: apiResponse[2].length
+          },
+          threeFailures: {
+            average: threeFailuresAvg.toFixed(2),
+            numberOfStudents: apiResponse[3].length
+          }
+        });
+      }
+    });
+  } else if (req.body.studytime) {
+    Data.getFinalGradeByStudyTime((err, apiResponse) => {
+      if (err) {
+        console.log('there was an error...', err);
+        res.json(err);
+      } else {
+        const lessThanTwoHoursAvg = getAverage(apiResponse, 0);
+        const twoToFiveHoursAvg = getAverage(apiResponse, 1);
+        const fiveToTenHoursAvg = getAverage(apiResponse, 2);
+        const moreThenTenHoursAvg = getAverage(apiResponse, 3);
+        res.json({
+          lessThanTwoHours: {
+            average: lessThanTwoHoursAvg.toFixed(2),
+            numberOfStudents: apiResponse[0].length
+          },
+          twoToFiveHours: {
+            average: twoToFiveHoursAvg.toFixed(2),
+            numberOfStudents: apiResponse[1].length
+          },
+          fiveToTenHours: {
+            average: fiveToTenHoursAvg.toFixed(2),
+            numberOfStudents: apiResponse[2].length
+          },
+          moreThenTenHours: {
+            average: moreThenTenHoursAvg.toFixed(2),
+            numberOfStudents: apiResponse[3].length
           }
         });
       }
