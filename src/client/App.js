@@ -78,7 +78,7 @@ class App extends Component {
             <Button
               bsStyle="primary"
               type="button"
-              active={showInternet ? 'active' : null}
+              active={showInternet}
               block
               onClick={this.showInternet}
             >
@@ -87,7 +87,7 @@ class App extends Component {
             <Button
               bsStyle="primary"
               type="button"
-              active={showAbsences ? 'active' : null}
+              active={showAbsences}
               block
               onClick={this.showAbsences}
             >
@@ -98,7 +98,7 @@ class App extends Component {
             <Button
               bsStyle="primary"
               type="button"
-              active={showFailures ? 'active' : null}
+              active={showFailures}
               block
               onClick={this.showFailures}
             >
@@ -107,7 +107,7 @@ class App extends Component {
             <Button
               bsStyle="primary"
               type="button"
-              active={showStudyTime ? 'active' : null}
+              active={showStudyTime}
               block
               onClick={this.showStudyTime}
             >

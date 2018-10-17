@@ -15,6 +15,9 @@ p {
   margin: 20px auto 0px auto;
   width: 90%;
 }
+.btn:focus {
+  outline: none !important;
+}
 
 .btnGroup {
   margin: 10px;

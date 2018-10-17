@@ -68,8 +68,8 @@ export default class StudyTime extends Component {
             parseFloat((fiveToTenHoursAvg * 10).toFixed(2)),
             parseFloat((moreThenTenHoursAvg * 10).toFixed(2))
           ],
-          backgroundColor: 'rgba(0, 30, 210, 0.5)',
-          borderColor: 'rgba(0, 30, 210, 1)',
+          backgroundColor: 'rgba(0, 150, 136, 0.5)',
+          borderColor: 'rgba(0, 150, 136, 1)',
           borderWidth: 1
         },
         {
@@ -81,7 +81,7 @@ export default class StudyTime extends Component {
             parseFloat(moreThenTenHoursNum)
           ],
           backgroundColor: 'rgba(255, 255, 255, 0)',
-          borderColor: 'rgba(200, 25, 1, 0.5)',
+          borderColor: 'rgba(233, 30, 99, 0.5)',
           type: 'line'
         }
       ]
