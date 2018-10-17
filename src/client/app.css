@@ -11,6 +11,13 @@ p {
   padding: 15px 10px;
 }
 
+.btnContainer {
+  margin: 20px auto 50px auto;
+  width: 90%;
+}
+
 .btnGroup {
-  margin: 20px 0 50px 0;
+  margin: 10px;
+  display: inline-block;
+  width: 150px;
 }

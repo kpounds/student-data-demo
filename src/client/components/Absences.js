@@ -82,15 +82,16 @@ export default class Absences extends Component {
       ],
       datasets: [
         {
-          label: 'Average Grade Based on Absences',
+          label:
+            'Average Grade Based on Absences (multiplied by 10 for better visual)',
           data: [
-            parseFloat(noAbsencesAvg),
-            parseFloat(fiveAbsencesAvg),
-            parseFloat(tenAbsencesAvg),
-            parseFloat(twentyAbsencesAvg),
-            parseFloat(thirtyAbsencesAvg),
-            parseFloat(fiftyAbsencesAvg),
-            parseFloat(moreAbsencesAvg)
+            parseFloat(noAbsencesAvg * 10),
+            parseFloat(fiveAbsencesAvg * 10),
+            parseFloat(tenAbsencesAvg * 10),
+            parseFloat(twentyAbsencesAvg * 10),
+            parseFloat(thirtyAbsencesAvg * 10),
+            parseFloat(fiftyAbsencesAvg * 10),
+            parseFloat(moreAbsencesAvg * 10)
           ],
           backgroundColor: 'rgba(0, 128, 1, 0.5)',
           borderColor: 'rgba(0, 128, 1, 1)',

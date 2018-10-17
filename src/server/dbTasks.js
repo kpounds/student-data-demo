@@ -3,6 +3,14 @@ const express = require('express');
 const router = express.Router();
 const Data = require('./models/dbQueries');
 
+// utility function to get averages and send back a float number
+function getAverage(apiData, index) {
+  return (
+    parseFloat(apiData[index].reduce((sum, current) => sum + current.g3, 0)) /
+    apiData[index].length
+  );
+}
+
 router.post('/:id?', (req, res) => {
   // switch here?
   if (req.body.internet) {
@@ -11,14 +19,8 @@ router.post('/:id?', (req, res) => {
         console.log('there was an error...', err);
         res.json(err);
       } else {
-        const withoutInternet =
-          parseFloat(
-            apiResponse[0].reduce((sum, current) => sum + current.g3, 0)
-          ) / apiResponse[0].length;
-        const withInternet =
-          parseFloat(
-            apiResponse[1].reduce((sum, current) => sum + current.g3, 0)
-          ) / apiResponse[1].length;
+        const withoutInternet = getAverage(apiResponse, 0);
+        const withInternet = getAverage(apiResponse, 1);
         res.json({
           withoutInternet: withoutInternet.toFixed(2),
           withInternet: withInternet.toFixed(2)
@@ -31,34 +33,13 @@ router.post('/:id?', (req, res) => {
         console.log('there was an error...', err);
         res.json(err);
       } else {
-        const noAbsences =
-          parseFloat(
-            apiResponse[0].reduce((sum, current) => sum + current.g3, 0)
-          ) / apiResponse[0].length;
-        const oneToFiveAbsences =
-          parseFloat(
-            apiResponse[1].reduce((sum, current) => sum + current.g3, 0)
-          ) / apiResponse[1].length;
-        const sixToTenAbsences =
-          parseFloat(
-            apiResponse[1].reduce((sum, current) => sum + current.g3, 0)
-          ) / apiResponse[1].length;
-        const elevenToTwentyAbsences =
-          parseFloat(
-            apiResponse[2].reduce((sum, current) => sum + current.g3, 0)
-          ) / apiResponse[2].length;
-        const twentyOneToThirtyAbsences =
-          parseFloat(
-            apiResponse[3].reduce((sum, current) => sum + current.g3, 0)
-          ) / apiResponse[3].length;
-        const thirtyOneToFifty =
-          parseFloat(
-            apiResponse[4].reduce((sum, current) => sum + current.g3, 0)
-          ) / apiResponse[4].length;
-        const greaterThanFifty =
-          parseFloat(
-            apiResponse[5].reduce((sum, current) => sum + current.g3, 0)
-          ) / apiResponse[5].length;
+        const noAbsences = getAverage(apiResponse, 0);
+        const oneToFiveAbsences = getAverage(apiResponse, 1);
+        const sixToTenAbsences = getAverage(apiResponse, 2);
+        const elevenToTwentyAbsences = getAverage(apiResponse, 3);
+        const twentyOneToThirtyAbsences = getAverage(apiResponse, 4);
+        const thirtyOneToFifty = getAverage(apiResponse, 5);
+        const greaterThanFifty = getAverage(apiResponse, 6);
         res.json({
           noAbsences: {
             average: noAbsences.toFixed(2),
