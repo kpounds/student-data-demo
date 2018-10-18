@@ -132,6 +132,40 @@ router.post('/:id?', (req, res) => {
         });
       }
     });
+  } else if (req.body.lifehealth) {
+    Data.getFinalGradeByLifestyleHealth((err, apiResponse) => {
+      if (err) {
+        console.log('there was an error...', err);
+        res.json(err);
+      } else {
+        const healthLevel1Avg = getAverage(apiResponse, 0);
+        const healthLevel2Avg = getAverage(apiResponse, 1);
+        const healthLevel3Avg = getAverage(apiResponse, 2);
+        const healthLevel4Avg = getAverage(apiResponse, 3);
+        const healthLevel5Avg = getAverage(apiResponse, 4);
+        const famLevel1Avg = getAverage(apiResponse, 5);
+        const famLevel2Avg = getAverage(apiResponse, 6);
+        const famLevel3Avg = getAverage(apiResponse, 7);
+        const famLevel4Avg = getAverage(apiResponse, 8);
+        const famLevel5Avg = getAverage(apiResponse, 9);
+        res.json({
+          healthLevelAvgs: {
+            veryPoor: healthLevel1Avg.toFixed(2),
+            poor: healthLevel2Avg.toFixed(2),
+            average: healthLevel3Avg.toFixed(2),
+            good: healthLevel4Avg.toFixed(2),
+            excellent: healthLevel5Avg.toFixed(2)
+          },
+          famLevelAvgs: {
+            veryPoor: famLevel1Avg.toFixed(2),
+            poor: famLevel2Avg.toFixed(2),
+            average: famLevel3Avg.toFixed(2),
+            good: famLevel4Avg.toFixed(2),
+            excellent: famLevel5Avg.toFixed(2)
+          }
+        });
+      }
+    });
   } else {
     res.send('There was no data sent!');
   }

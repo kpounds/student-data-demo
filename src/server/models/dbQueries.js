@@ -21,6 +21,16 @@ const Data = {
     database.query(
       'SELECT g3 from students WHERE absences=0;SELECT g3 from students WHERE absences > 0 AND absences <= 5;SELECT g3 from students WHERE absences > 5 AND absences <= 10;SELECT g3 from students WHERE absences > 10 AND absences <= 20;SELECT g3 from students WHERE absences > 20 AND absences <= 30;SELECT g3 from students WHERE absences > 30 AND absences <= 50;SELECT g3 from students WHERE absences > 50;',
       callback
+    ),
+  getFinalGradeByLifestyleHealth: callback =>
+    database.query(
+      'SELECT g3 from students WHERE health=1;SELECT g3 from students WHERE health=2;SELECT g3 from students WHERE health=3;SELECT g3 from students WHERE health=4;SELECT g3 from students WHERE health=5;SELECT g3 from students WHERE famrel=1;SELECT g3 from students WHERE famrel=2;SELECT g3 from students WHERE famrel=3;SELECT g3 from students WHERE famrel=4;SELECT g3 from students WHERE famrel=5;',
+      callback
+    ),
+  getAllGradesByHealth: callback =>
+    database.query(
+      'SELECT g1, g2, g3 from students WHERE health=1;SELECT g1, g2, g3 from students WHERE health=2;SELECT g1, g2, g3 from students WHERE health=3;SELECT g1, g2, g3 from students WHERE health=4;SELECT g1, g2, g3 from students WHERE health=5;',
+      callback
     )
 };
 
