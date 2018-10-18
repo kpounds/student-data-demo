@@ -5,6 +5,7 @@ import Absences from './components/Absences';
 import Failures from './components/Failures';
 import StudyTime from './components/StudyTime';
 import LifestyleHealth from './components/LifestyleHealth';
+import TravelTime from './components/TravelTime';
 import './app.css';
 
 class App extends Component {
@@ -13,7 +14,8 @@ class App extends Component {
     showAbsences: false,
     showFailures: false,
     showStudyTime: false,
-    showHealth: false
+    showHealth: false,
+    showTravel: false
   };
 
   reset = () => {
@@ -22,7 +24,8 @@ class App extends Component {
       showAbsences: false,
       showFailures: false,
       showStudyTime: false,
-      showHealth: false
+      showHealth: false,
+      showTravel: false
     });
   };
 
@@ -32,7 +35,8 @@ class App extends Component {
       showAbsences: false,
       showFailures: false,
       showStudyTime: false,
-      showHealth: false
+      showHealth: false,
+      showTravel: false
     });
   };
 
@@ -42,7 +46,8 @@ class App extends Component {
       showAbsences: true,
       showFailures: false,
       showStudyTime: false,
-      showHealth: false
+      showHealth: false,
+      showTravel: false
     });
   };
 
@@ -52,7 +57,8 @@ class App extends Component {
       showAbsences: false,
       showFailures: true,
       showStudyTime: false,
-      showHealth: false
+      showHealth: false,
+      showTravel: false
     });
   };
 
@@ -62,7 +68,8 @@ class App extends Component {
       showAbsences: false,
       showFailures: false,
       showStudyTime: true,
-      showHealth: false
+      showHealth: false,
+      showTravel: false
     });
   };
 
@@ -72,7 +79,19 @@ class App extends Component {
       showAbsences: false,
       showFailures: false,
       showStudyTime: false,
-      showHealth: true
+      showHealth: true,
+      showTravel: false
+    });
+  };
+
+  showTravel = () => {
+    this.setState({
+      showInternet: false,
+      showAbsences: false,
+      showFailures: false,
+      showStudyTime: false,
+      showHealth: false,
+      showTravel: true
     });
   };
 
@@ -82,7 +101,8 @@ class App extends Component {
       showAbsences,
       showFailures,
       showStudyTime,
-      showHealth
+      showHealth,
+      showTravel
     } = this.state;
     return (
       <div>
@@ -145,9 +165,9 @@ class App extends Component {
             <Button
               bsStyle="primary"
               type="button"
-              active={showStudyTime}
+              active={showTravel}
               block
-              onClick={this.showStudyTime}
+              onClick={this.showTravel}
             >
               Travel Time
             </Button>
@@ -163,6 +183,7 @@ class App extends Component {
         {showFailures && <Failures />}
         {showStudyTime && <StudyTime />}
         {showHealth && <LifestyleHealth />}
+        {showTravel && <TravelTime />}
       </div>
     );
   }

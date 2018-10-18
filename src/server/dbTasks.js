@@ -190,6 +190,24 @@ router.post('/:id?', (req, res) => {
         });
       }
     });
+  } else if (req.body.traveltime) {
+    Data.getFinalGradesByTravelTime((err, apiResponse) => {
+      if (err) {
+        console.log('there was an error...', err);
+        res.json(err);
+      } else {
+        const lessThanFifteenAvg = getAverage(apiResponse, 0);
+        const fifteenToThirtyAvg = getAverage(apiResponse, 1);
+        const ThirtyMinsToHourAvg = getAverage(apiResponse, 2);
+        const greaterThanHourAvg = getAverage(apiResponse, 3);
+        res.json({
+          lessThanFifteenAvg: lessThanFifteenAvg.toFixed(2),
+          fifteenToThirtyAvg: fifteenToThirtyAvg.toFixed(2),
+          ThirtyMinsToHourAvg: ThirtyMinsToHourAvg.toFixed(2),
+          greaterThanHourAvg: greaterThanHourAvg.toFixed(2)
+        });
+      }
+    });
   } else {
     res.send('There was no data sent!');
   }

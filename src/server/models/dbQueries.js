@@ -31,6 +31,11 @@ const Data = {
     database.query(
       'SELECT g1, g2, g3 from students WHERE health=1;SELECT g1, g2, g3 from students WHERE health=2;SELECT g1, g2, g3 from students WHERE health=3;SELECT g1, g2, g3 from students WHERE health=4;SELECT g1, g2, g3 from students WHERE health=5;',
       callback
+    ),
+  getFinalGradesByTravelTime: callback =>
+    database.query(
+      'SELECT g3 from students WHERE traveltime=1;SELECT g3 from students WHERE traveltime=2;SELECT g3 from students WHERE health=3;SELECT g3 from students WHERE health=4;',
+      callback
     )
 };
 
