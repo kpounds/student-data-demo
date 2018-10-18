@@ -6,11 +6,12 @@ import Failures from './components/Failures';
 import StudyTime from './components/StudyTime';
 import LifestyleHealth from './components/LifestyleHealth';
 import TravelTime from './components/TravelTime';
+import AllGradesByHealth from './components/AllGradesByHealth';
 import './app.css';
 
 class App extends Component {
   state = {
-    showInternet: true,
+    showInternet: false,
     showAbsences: false,
     showFailures: false,
     showStudyTime: false,
@@ -182,6 +183,12 @@ class App extends Component {
             Reset
           </Button>
         </div>
+        {!showInternet &&
+          !showAbsences &&
+          !showFailures &&
+          !showStudyTime &&
+          !showHealth &&
+          !showTravel && <AllGradesByHealth />}
         {showInternet && <InternetAccess />}
         {showAbsences && <Absences />}
         {showFailures && <Failures />}

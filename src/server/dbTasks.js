@@ -10,6 +10,15 @@ function getAverage(apiData, index) {
     apiData[index].length
   );
 }
+// utility function to get averages that also takes a third parameter
+// to functionally get average of values based on provided table column name
+function getAverageByGrade(apiData, index, column) {
+  return (
+    parseFloat(
+      apiData[index].reduce((sum, current) => sum + current[column], 0)
+    ) / apiData[index].length
+  );
+}
 
 router.post('/:id?', (req, res) => {
   // Could also do a switch statement here if more readable?
@@ -205,6 +214,88 @@ router.post('/:id?', (req, res) => {
           fifteenToThirtyAvg: fifteenToThirtyAvg.toFixed(2),
           ThirtyMinsToHourAvg: ThirtyMinsToHourAvg.toFixed(2),
           greaterThanHourAvg: greaterThanHourAvg.toFixed(2)
+        });
+      }
+    });
+  } else if (req.body.allgradeshealth) {
+    Data.getAllGradesByHealth((err, apiResponse) => {
+      if (err) {
+        console.log('there was an error...', err);
+        res.json(err);
+      } else {
+        const g1ByHealthLevelVeryPoorAvg = getAverageByGrade(
+          apiResponse,
+          0,
+          'g1'
+        );
+        const g1ByHealthLevelPoorAvg = getAverageByGrade(apiResponse, 1, 'g1');
+        const g1ByHealthLevelAverageAvg = getAverageByGrade(
+          apiResponse,
+          2,
+          'g1'
+        );
+        const g1ByHealthLevelGoodAvg = getAverageByGrade(apiResponse, 3, 'g1');
+        const g1ByHealthLevelExcellentAvg = getAverageByGrade(
+          apiResponse,
+          4,
+          'g1'
+        );
+        const g2ByHealthLevelVeryPoorAvg = getAverageByGrade(
+          apiResponse,
+          0,
+          'g2'
+        );
+        const g2ByHealthLevelPoorAvg = getAverageByGrade(apiResponse, 1, 'g2');
+        const g2ByHealthLevelAverageAvg = getAverageByGrade(
+          apiResponse,
+          2,
+          'g2'
+        );
+        const g2ByHealthLevelGoodAvg = getAverageByGrade(apiResponse, 3, 'g2');
+        const g2ByHealthLevelExcellentAvg = getAverageByGrade(
+          apiResponse,
+          4,
+          'g2'
+        );
+        const g3ByHealthLevelVeryPoorAvg = getAverageByGrade(
+          apiResponse,
+          0,
+          'g3'
+        );
+        const g3ByHealthLevelPoorAvg = getAverageByGrade(apiResponse, 1, 'g3');
+        const g3ByHealthLevelAverageAvg = getAverageByGrade(
+          apiResponse,
+          2,
+          'g3'
+        );
+        const g3ByHealthLevelGoodAvg = getAverageByGrade(apiResponse, 3, 'g3');
+        const g3ByHealthLevelExcellentAvg = getAverageByGrade(
+          apiResponse,
+          4,
+          'g3'
+        );
+        res.json({
+          g1AveragesByHealth: {
+            g1VeryPoorAvg: g1ByHealthLevelVeryPoorAvg.toFixed(2),
+            g1PoorAvg: g1ByHealthLevelPoorAvg.toFixed(2),
+            g1AverageAvg: g1ByHealthLevelAverageAvg.toFixed(2),
+            g1GoodAvg: g1ByHealthLevelGoodAvg.toFixed(2),
+            g1ExcellentAvg: g1ByHealthLevelExcellentAvg.toFixed(2)
+          },
+          g2AveragesByHealth: {
+            g2VeryPoorAvg: g2ByHealthLevelVeryPoorAvg.toFixed(2),
+            g2PoorAvg: g2ByHealthLevelPoorAvg.toFixed(2),
+            g2AverageAvg: g2ByHealthLevelAverageAvg.toFixed(2),
+            g2GoodAvg: g2ByHealthLevelGoodAvg.toFixed(2),
+            g2ExcellentAvg: g2ByHealthLevelExcellentAvg.toFixed(2)
+          },
+          g3AveragesByHealth: {
+            g3VeryPoorAvg: g3ByHealthLevelVeryPoorAvg.toFixed(2),
+            g3PoorAvg: g3ByHealthLevelPoorAvg.toFixed(2),
+            g3AverageAvg: g3ByHealthLevelAverageAvg.toFixed(2),
+            g3GoodAvg: g3ByHealthLevelGoodAvg.toFixed(2),
+            g3ExcellentAvg: g3ByHealthLevelExcellentAvg.toFixed(2)
+          }
         });
       }
     });

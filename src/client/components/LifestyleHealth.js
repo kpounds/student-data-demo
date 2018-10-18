@@ -180,6 +180,7 @@ export default class LifestyleHealth extends Component {
             }
           }}
         />
+        <p>Quality of Health & Lifestyle</p>
       </Fragment>
     );
   }
