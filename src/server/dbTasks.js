@@ -148,6 +148,16 @@ router.post('/:id?', (req, res) => {
         const famLevel3Avg = getAverage(apiResponse, 7);
         const famLevel4Avg = getAverage(apiResponse, 8);
         const famLevel5Avg = getAverage(apiResponse, 9);
+        const weekDayAlc1Avg = getAverage(apiResponse, 10);
+        const weekDayAlc2Avg = getAverage(apiResponse, 11);
+        const weekDayAlc3Avg = getAverage(apiResponse, 12);
+        const weekDayAlc4Avg = getAverage(apiResponse, 13);
+        const weekDayAlc5Avg = getAverage(apiResponse, 14);
+        const weekEndAlc1Avg = getAverage(apiResponse, 15);
+        const weekEndAlc2Avg = getAverage(apiResponse, 16);
+        const weekEndAlc3Avg = getAverage(apiResponse, 17);
+        const weekEndAlc4Avg = getAverage(apiResponse, 18);
+        const weekEndAlc5Avg = getAverage(apiResponse, 19);
         res.json({
           healthLevelAvgs: {
             veryPoor: healthLevel1Avg.toFixed(2),
@@ -162,6 +172,20 @@ router.post('/:id?', (req, res) => {
             average: famLevel3Avg.toFixed(2),
             good: famLevel4Avg.toFixed(2),
             excellent: famLevel5Avg.toFixed(2)
+          },
+          weekDayAlchConsAvgs: {
+            veryLow: weekDayAlc1Avg.toFixed(2),
+            low: weekDayAlc2Avg.toFixed(2),
+            average: weekDayAlc3Avg.toFixed(2),
+            high: weekDayAlc4Avg.toFixed(2),
+            veryHigh: weekDayAlc5Avg.toFixed(2)
+          },
+          weekEndAlchConsAvgs: {
+            veryLow: weekEndAlc1Avg.toFixed(2),
+            low: weekEndAlc2Avg.toFixed(2),
+            average: weekEndAlc3Avg.toFixed(2),
+            high: weekEndAlc4Avg.toFixed(2),
+            veryHigh: weekEndAlc5Avg.toFixed(2)
           }
         });
       }

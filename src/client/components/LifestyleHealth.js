@@ -14,7 +14,17 @@ export default class LifestyleHealth extends Component {
     poorFamAvg: null,
     averageFamAvg: null,
     goodFamAvg: null,
-    excellentFamAvg: null
+    excellentFamAvg: null,
+    veryLowWeekDayAlcohol: null,
+    lowWeekDayAlcohol: null,
+    averageWeekDayAlcohol: null,
+    highWeekDayAlcohol: null,
+    veryHighWeekDayAlcohol: null,
+    veryLowWeekEndAlcohol: null,
+    lowWeekEndAlcohol: null,
+    averageWeekEndAlcohol: null,
+    highWeekEndAlcohol: null,
+    veryHighWeekEndAlcohol: null
   };
 
   componentDidMount() {
@@ -36,7 +46,17 @@ export default class LifestyleHealth extends Component {
           poorFamAvg: res.data.famLevelAvgs.poor,
           averageFamAvg: res.data.famLevelAvgs.average,
           goodFamAvg: res.data.famLevelAvgs.good,
-          excellentFamAvg: res.data.famLevelAvgs.excellent
+          excellentFamAvg: res.data.famLevelAvgs.excellent,
+          veryLowWeekDayAlcohol: res.data.weekDayAlchConsAvgs.veryLow,
+          lowWeekDayAlcohol: res.data.weekDayAlchConsAvgs.low,
+          averageWeekDayAlcohol: res.data.weekDayAlchConsAvgs.average,
+          highWeekDayAlcohol: res.data.weekDayAlchConsAvgs.high,
+          veryHighWeekDayAlcohol: res.data.weekDayAlchConsAvgs.veryHigh,
+          veryLowWeekEndAlcohol: res.data.weekEndAlchConsAvgs.veryLow,
+          lowWeekEndAlcohol: res.data.weekEndAlchConsAvgs.low,
+          averageWeekEndAlcohol: res.data.weekEndAlchConsAvgs.average,
+          highWeekEndAlcohol: res.data.weekEndAlchConsAvgs.high,
+          veryHighWeekEndAlcohol: res.data.weekEndAlchConsAvgs.veryHigh
         });
       })
       .catch(err => {
@@ -55,10 +75,21 @@ export default class LifestyleHealth extends Component {
       poorFamAvg,
       averageFamAvg,
       goodFamAvg,
-      excellentFamAvg
+      excellentFamAvg,
+      veryLowWeekDayAlcohol,
+      lowWeekDayAlcohol,
+      averageWeekDayAlcohol,
+      highWeekDayAlcohol,
+      veryHighWeekDayAlcohol,
+      veryLowWeekEndAlcohol,
+      lowWeekEndAlcohol,
+      averageWeekEndAlcohol,
+      highWeekEndAlcohol,
+      veryHighWeekEndAlcohol
     } = this.state;
     const lineData = {
       labels: ['Very Poor', 'Poor', 'Average', 'Good', 'Excellent'],
+
       datasets: [
         {
           label: 'Current Health Status',
@@ -71,7 +102,9 @@ export default class LifestyleHealth extends Component {
           ],
           backgroundColor: 'rgba(255, 255, 255, 0)',
           borderColor: 'rgba(0, 170, 1, 0.8)',
-          borderWidth: 1
+          pointRadius: 5,
+          pointBackgroundColor: 'rgba(0, 170, 1, 1)',
+          type: 'line'
         },
         {
           label: 'Quality of Family Relationships',
@@ -83,19 +116,52 @@ export default class LifestyleHealth extends Component {
             parseFloat(excellentFamAvg)
           ],
           backgroundColor: 'rgba(255, 255, 255, 0)',
-          borderColor: 'rgba(20, 89, 175, 0.8)',
-          borderWidth: 1,
+          borderColor: 'rgba(55, 100, 210, 0.8)',
+          pointRadius: 5,
+          pointBackgroundColor: 'rgba(55, 100, 210, 1)',
+          type: 'line'
+        },
+        {
+          label: 'Weekday Alcohol Consumption',
+          data: [
+            parseFloat(veryHighWeekDayAlcohol),
+            parseFloat(highWeekDayAlcohol),
+            parseFloat(averageWeekDayAlcohol),
+            parseFloat(lowWeekDayAlcohol),
+            parseFloat(veryLowWeekDayAlcohol)
+          ],
+          backgroundColor: 'rgba(255, 255, 255, 0)',
+          borderColor: 'rgba(198, 30, 80, 0.8)',
+          pointRadius: 5,
+          pointBackgroundColor: 'rgba(198, 30, 80, 1)',
+          type: 'line'
+        },
+        {
+          label: 'Weekend Alcohol Consumption',
+          data: [
+            parseFloat(veryHighWeekEndAlcohol),
+            parseFloat(highWeekEndAlcohol),
+            parseFloat(averageWeekEndAlcohol),
+            parseFloat(lowWeekEndAlcohol),
+            parseFloat(veryLowWeekEndAlcohol)
+          ],
+          backgroundColor: 'rgba(255, 255, 255, 0)',
+          borderColor: 'rgba(20, 20, 20, 0.8)',
+          pointRadius: 5,
+          pointBackgroundColor: 'rgba(20, 20, 20, 1)',
           type: 'line'
         }
       ]
     };
     return (
       <Fragment>
-        <h4>Grade Averages Based on Overall Healthy Lifestyle</h4>
+        <h4>Grade Averages Based on Overall Health & Lifestyles</h4>
         <p>
           This graph shows multiple points of grade averages based on the
           quality of overall health and other variables that can effect healthy
-          living and how it relates to the final average grade.
+          living and how it relates to the final average grade. For Alcohol
+          consumption both on the weekdays and weekends, very poor is measured
+          by more alcohol and excellent is measured by less alcohol.
         </p>
         <Line
           data={lineData}

@@ -116,6 +116,10 @@ export default class Absences extends Component {
     };
     return (
       <Fragment>
+        <p>
+          This visual shows a bar chart of average grade based on absences, and
+          then a line chart for the number of students in each average range.
+        </p>
         <Bar
           data={barData}
           width={100}

@@ -24,7 +24,7 @@ const Data = {
     ),
   getFinalGradeByLifestyleHealth: callback =>
     database.query(
-      'SELECT g3 from students WHERE health=1;SELECT g3 from students WHERE health=2;SELECT g3 from students WHERE health=3;SELECT g3 from students WHERE health=4;SELECT g3 from students WHERE health=5;SELECT g3 from students WHERE famrel=1;SELECT g3 from students WHERE famrel=2;SELECT g3 from students WHERE famrel=3;SELECT g3 from students WHERE famrel=4;SELECT g3 from students WHERE famrel=5;',
+      'SELECT g3 from students WHERE health=1;SELECT g3 from students WHERE health=2;SELECT g3 from students WHERE health=3;SELECT g3 from students WHERE health=4;SELECT g3 from students WHERE health=5;SELECT g3 from students WHERE famrel=1;SELECT g3 from students WHERE famrel=2;SELECT g3 from students WHERE famrel=3;SELECT g3 from students WHERE famrel=4;SELECT g3 from students WHERE famrel=5;SELECT g3 from students WHERE Dalc=1;SELECT g3 from students WHERE Dalc=2;SELECT g3 from students WHERE Dalc=3;SELECT g3 from students WHERE Dalc=4;SELECT g3 from students WHERE Dalc=5;SELECT g3 from students WHERE Walc=1;SELECT g3 from students WHERE Walc=2;SELECT g3 from students WHERE Walc=3;SELECT g3 from students WHERE Walc=4;SELECT g3 from students WHERE Walc=5;',
       callback
     ),
   getAllGradesByHealth: callback =>
