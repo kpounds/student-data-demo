@@ -45,8 +45,8 @@ export default class InternetAccess extends Component {
     return (
       <Fragment>
         <p>
-          A simple bar chart comparing final grade averages of students with
-          internet access against those without internet access.
+          This shows a simple bar chart comparing final grade averages of
+          students with internet access against those without internet access.
         </p>
         <Bar
           data={barData}

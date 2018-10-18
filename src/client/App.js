@@ -10,7 +10,7 @@ import './app.css';
 
 class App extends Component {
   state = {
-    showInternet: false,
+    showInternet: true,
     showAbsences: false,
     showFailures: false,
     showStudyTime: false,
@@ -108,8 +108,12 @@ class App extends Component {
       <div>
         <h1>Welcome!</h1>
         <p>
-          Select one of the following to view information about average grade
-          statistics and how they are affected by different circumstances:
+          This is a visualization of data collected based on a study of grades
+          in a school in respect to social activities and home life and how it
+          effects the average final grades. To see samples of the results of
+          this study, select one of the following to view information about
+          average grade statistics and how they are affected by different
+          circumstances:
         </p>
         <div className="btnContainer">
           <div className="btnGroup">
