@@ -73,7 +73,7 @@ export default class StudyTime extends Component {
           borderWidth: 1
         },
         {
-          label: 'Number of Students in Failures Range',
+          label: 'Number of Students in Study Time Range',
           data: [
             parseFloat(lessThanTwoHoursNum),
             parseFloat(twoToFiveHoursNum),
