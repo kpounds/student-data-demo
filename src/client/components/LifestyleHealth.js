@@ -94,11 +94,11 @@ export default class LifestyleHealth extends Component {
         {
           label: 'Current Health Status',
           data: [
-            parseFloat(veryPoorHealthAvg * 10),
-            parseFloat(poorHealthAvg * 10),
-            parseFloat(averageHealthAvg * 10),
-            parseFloat(goodHealthAvg * 10),
-            parseFloat(excellentHealthAvg * 10)
+            parseFloat(veryPoorHealthAvg),
+            parseFloat(poorHealthAvg),
+            parseFloat(averageHealthAvg),
+            parseFloat(goodHealthAvg),
+            parseFloat(excellentHealthAvg)
           ],
           backgroundColor: 'rgba(255, 255, 255, 0)',
           borderColor: 'rgba(0, 170, 1, 0.8)',
@@ -109,11 +109,11 @@ export default class LifestyleHealth extends Component {
         {
           label: 'Quality of Family Relationships',
           data: [
-            parseFloat(veryPoorFamAvg * 10),
-            parseFloat(poorFamAvg * 10),
-            parseFloat(averageFamAvg * 10),
-            parseFloat(goodFamAvg * 10),
-            parseFloat(excellentFamAvg * 10)
+            parseFloat(veryPoorFamAvg),
+            parseFloat(poorFamAvg),
+            parseFloat(averageFamAvg),
+            parseFloat(goodFamAvg),
+            parseFloat(excellentFamAvg)
           ],
           backgroundColor: 'rgba(255, 255, 255, 0)',
           borderColor: 'rgba(55, 100, 210, 0.8)',
@@ -124,11 +124,11 @@ export default class LifestyleHealth extends Component {
         {
           label: 'Weekday Alcohol Consumption',
           data: [
-            parseFloat(veryHighWeekDayAlcohol * 10),
-            parseFloat(highWeekDayAlcohol * 10),
-            parseFloat(averageWeekDayAlcohol * 10),
-            parseFloat(lowWeekDayAlcohol * 10),
-            parseFloat(veryLowWeekDayAlcohol * 10)
+            parseFloat(veryHighWeekDayAlcohol),
+            parseFloat(highWeekDayAlcohol),
+            parseFloat(averageWeekDayAlcohol),
+            parseFloat(lowWeekDayAlcohol),
+            parseFloat(veryLowWeekDayAlcohol)
           ],
           backgroundColor: 'rgba(255, 255, 255, 0)',
           borderColor: 'rgba(198, 30, 80, 0.8)',
@@ -139,11 +139,11 @@ export default class LifestyleHealth extends Component {
         {
           label: 'Weekend Alcohol Consumption',
           data: [
-            parseFloat(veryHighWeekEndAlcohol * 10),
-            parseFloat(highWeekEndAlcohol * 10),
-            parseFloat(averageWeekEndAlcohol * 10),
-            parseFloat(lowWeekEndAlcohol * 10),
-            parseFloat(veryLowWeekEndAlcohol * 10)
+            parseFloat(veryHighWeekEndAlcohol),
+            parseFloat(highWeekEndAlcohol),
+            parseFloat(averageWeekEndAlcohol),
+            parseFloat(lowWeekEndAlcohol),
+            parseFloat(veryLowWeekEndAlcohol)
           ],
           backgroundColor: 'rgba(255, 255, 255, 0)',
           borderColor: 'rgba(20, 20, 20, 0.8)',

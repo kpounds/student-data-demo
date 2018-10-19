@@ -34,18 +34,18 @@ export default class AllGradesByHealth extends Component {
         this.setState({
           g1VeryPoorAvg: res.data.g1AveragesByHealth.g1VeryPoorAvg,
           g1PoorAvg: res.data.g1AveragesByHealth.g1PoorAvg,
-          g1AverageAvg: res.data.g1AveragesByHealth.g1GoodAvg,
-          g1GoodAvg: res.data.g1AveragesByHealth.g1VeryPoorAvg,
+          g1AverageAvg: res.data.g1AveragesByHealth.g1AverageAvg,
+          g1GoodAvg: res.data.g1AveragesByHealth.g1GoodAvg,
           g1ExcellentAvg: res.data.g1AveragesByHealth.g1ExcellentAvg,
           g2VeryPoorAvg: res.data.g2AveragesByHealth.g2VeryPoorAvg,
           g2PoorAvg: res.data.g2AveragesByHealth.g2PoorAvg,
-          g2AverageAvg: res.data.g2AveragesByHealth.g2GoodAvg,
-          g2GoodAvg: res.data.g2AveragesByHealth.g2VeryPoorAvg,
+          g2AverageAvg: res.data.g2AveragesByHealth.g2AverageAvg,
+          g2GoodAvg: res.data.g2AveragesByHealth.g2GoodAvg,
           g2ExcellentAvg: res.data.g2AveragesByHealth.g2ExcellentAvg,
           g3VeryPoorAvg: res.data.g3AveragesByHealth.g3VeryPoorAvg,
           g3PoorAvg: res.data.g3AveragesByHealth.g3PoorAvg,
-          g3AverageAvg: res.data.g3AveragesByHealth.g3GoodAvg,
-          g3GoodAvg: res.data.g3AveragesByHealth.g3VeryPoorAvg,
+          g3AverageAvg: res.data.g3AveragesByHealth.g3AverageAvg,
+          g3GoodAvg: res.data.g3AveragesByHealth.g3GoodAvg,
           g3ExcellentAvg: res.data.g3AveragesByHealth.g3ExcellentAvg
         });
       })
@@ -79,46 +79,46 @@ export default class AllGradesByHealth extends Component {
         {
           label: 'Grade 1',
           data: [
-            parseFloat(g1VeryPoorAvg * 10),
-            parseFloat(g1PoorAvg * 10),
-            parseFloat(g1AverageAvg * 10),
-            parseFloat(g1GoodAvg * 10),
-            parseFloat(g1ExcellentAvg * 10)
+            parseFloat(g1VeryPoorAvg),
+            parseFloat(g1PoorAvg),
+            parseFloat(g1AverageAvg),
+            parseFloat(g1GoodAvg),
+            parseFloat(g1ExcellentAvg)
           ],
           backgroundColor: 'rgba(255, 255, 255, 0)',
-          borderColor: 'rgba(0, 170, 1, 0.8)',
+          borderColor: 'rgba(112, 61, 202, 0.8)',
           pointRadius: 5,
-          pointBackgroundColor: 'rgba(0, 170, 1, 1)',
+          pointBackgroundColor: 'rgba(112, 61, 202, 1)',
           type: 'line'
         },
         {
           label: 'Grade 2',
           data: [
-            parseFloat(g2VeryPoorAvg * 10),
-            parseFloat(g2PoorAvg * 10),
-            parseFloat(g2AverageAvg * 10),
-            parseFloat(g2GoodAvg * 10),
-            parseFloat(g2ExcellentAvg * 10)
+            parseFloat(g2VeryPoorAvg),
+            parseFloat(g2PoorAvg),
+            parseFloat(g2AverageAvg),
+            parseFloat(g2GoodAvg),
+            parseFloat(g2ExcellentAvg)
           ],
           backgroundColor: 'rgba(255, 255, 255, 0)',
-          borderColor: 'rgba(55, 100, 210, 0.8)',
+          borderColor: 'rgba(230, 175, 8, 0.8)',
           pointRadius: 5,
-          pointBackgroundColor: 'rgba(55, 100, 210, 1)',
+          pointBackgroundColor: 'rgba(230, 175, 8, 1)',
           type: 'line'
         },
         {
-          label: 'Final Grade (G3)',
+          label: 'Grade 3 (Final Grade)',
           data: [
-            parseFloat(g3VeryPoorAvg * 10),
-            parseFloat(g3PoorAvg * 10),
-            parseFloat(g3AverageAvg * 10),
-            parseFloat(g3GoodAvg * 10),
-            parseFloat(g3ExcellentAvg * 10)
+            parseFloat(g3VeryPoorAvg),
+            parseFloat(g3PoorAvg),
+            parseFloat(g3AverageAvg),
+            parseFloat(g3GoodAvg),
+            parseFloat(g3ExcellentAvg)
           ],
           backgroundColor: 'rgba(255, 255, 255, 0)',
-          borderColor: 'rgba(198, 30, 80, 0.8)',
+          borderColor: 'rgba(79, 219, 84, 0.8)',
           pointRadius: 5,
-          pointBackgroundColor: 'rgba(198, 30, 80, 1)',
+          pointBackgroundColor: 'rgba(79, 219, 84, 1)',
           type: 'line'
         }
       ]

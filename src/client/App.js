@@ -111,10 +111,13 @@ class App extends Component {
         <p>
           This is a visualization of data collected based on a study of grades
           in a school in respect to social activities and home life and how it
-          effects the average final grades. To see samples of the results of
-          this study, select one of the following to view information about
-          average grade statistics and how they are affected by different
-          circumstances:
+          effects the average final grades. The first sample below shows all 3
+          grade averages only based on general health level of the student.
+          <br />
+          <br />
+          To see samples of the results of this study, select one of the
+          following to view information about average grade statistics and how
+          they are affected by different circumstances:
         </p>
         <div className="btnContainer">
           <div className="btnGroup">
